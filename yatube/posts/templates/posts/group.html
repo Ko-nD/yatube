@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 {% block title %} Записи сообщества {{ group.title }} {% endblock %}
 {% block content %}
@@ -21,3 +22,28 @@
 </div>
 
 {% endblock %}
+=======
+{% extends "base.html" %}
+{% block title %} Записи сообщества {{ group.title }} {% endblock %}
+{% block content %}
+{% load thumbnail %}
+
+<h1>{{ group.title }}</h1>
+<p>
+    {{ group.description }}
+</p>
+
+<div class="col-md-9">
+
+    {% for post in page %}
+        {% include 'posts/post_item.html' with post=post %}
+    {% endfor %}
+
+    {% if page.has_other_pages %}
+        {% include "paginator.html" with items=page paginator=paginator %}
+    {% endif %}
+    
+</div>
+
+{% endblock %}
+>>>>>>> e00ceddaa1758d008aea9fd3ff70b76728ca2368
